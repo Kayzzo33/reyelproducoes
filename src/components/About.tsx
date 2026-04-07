@@ -23,7 +23,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/5">
+            <div className="relative z-[10000] rounded-2xl overflow-hidden shadow-2xl border border-white/5">
               <img
                 src="/93D7D00E-239F-422B-B624-6953CF9281A9.JPG.jpeg"
                 alt="Fotógrafo da Reyel Produções em ação"

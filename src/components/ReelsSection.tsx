@@ -32,11 +32,31 @@ export default function ReelsSection() {
   };
 
   const getEmbedUrl = (url: string) => {
+    if (!url) return '';
+    
+    // YouTube
     if (url.includes('youtube.com') || url.includes('youtu.be')) {
       const id = url.includes('v=') ? url.split('v=')[1].split('&')[0] : url.split('/').pop();
       return `https://www.youtube.com/embed/${id}?autoplay=1`;
     }
+    
+    // Instagram
+    if (url.includes('instagram.com')) {
+      const baseUrl = url.split('?')[0];
+      return `${baseUrl}${baseUrl.endsWith('/') ? '' : '/'}embed/`;
+    }
+    
+    // Google Drive
+    if (url.includes('drive.google.com')) {
+      return url.replace('/view', '/preview').replace('/edit', '/preview');
+    }
+    
     return url;
+  };
+
+  const isDirectVideo = (url: string) => {
+    const videoExtensions = ['.mp4', '.webm', '.ogg', '.mov'];
+    return videoExtensions.some(ext => url.toLowerCase().includes(ext));
   };
 
   return (
@@ -73,7 +93,7 @@ export default function ReelsSection() {
         ) : (
           <div 
             ref={ref}
-            className="flex flex-wrap justify-center gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10 place-items-center"
           >
             {videos.map((video, index) => (
               <motion.div
@@ -81,7 +101,7 @@ export default function ReelsSection() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative aspect-[9/16] bg-slate-900 rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
+                className="group relative w-full max-w-[320px] aspect-[9/16] bg-slate-900 rounded-3xl overflow-hidden shadow-2xl cursor-pointer"
                 onClick={() => setSelectedVideo(video)}
               >
                 <img
@@ -115,7 +135,7 @@ export default function ReelsSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm"
+            className="fixed inset-0 z-[10002] flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -125,17 +145,26 @@ export default function ReelsSection() {
             >
               <button
                 onClick={() => setSelectedVideo(null)}
-                className="absolute top-6 right-6 z-10 w-12 h-12 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-red-600 transition-colors backdrop-blur-md"
+                className="absolute top-6 right-6 z-[10003] w-12 h-12 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-red-600 transition-colors backdrop-blur-md"
               >
                 <X size={24} />
               </button>
               
-              <iframe
-                src={getEmbedUrl(selectedVideo.video_url)}
-                className="w-full h-full"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-              ></iframe>
+              {isDirectVideo(selectedVideo.video_url) ? (
+                <video 
+                  src={selectedVideo.video_url}
+                  className="w-full h-full"
+                  controls
+                  autoPlay
+                />
+              ) : (
+                <iframe
+                  src={getEmbedUrl(selectedVideo.video_url)}
+                  className="w-full h-full"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                ></iframe>
+              )}
             </motion.div>
           </motion.div>
         )}

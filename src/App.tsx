@@ -33,16 +33,14 @@ function App() {
   return (
     <ErrorBoundary>
       <AuthProvider>
-        <div className="relative z-10">
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/admin" element={<AdminPanel />} />
-              <Route path="/adimin" element={<Navigate to="/admin" replace />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </BrowserRouter>
-        </div>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/admin" element={<AdminPanel />} />
+            <Route path="/adimin" element={<Navigate to="/admin" replace />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </BrowserRouter>
       </AuthProvider>
     </ErrorBoundary>
   );
