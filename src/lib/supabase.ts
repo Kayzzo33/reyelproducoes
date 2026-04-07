@@ -7,7 +7,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export const TABLES = {
   PROJECTS: 'reyel_projects',
-  TEAM_MEMBERS: 'reyel_team_members',
+  VIDEOS: 'reyel_video_reels',
 } as const;
 
 export interface GalleryProject {
@@ -21,14 +21,14 @@ export interface GalleryProject {
   updated_at: string;
 }
 
-export interface TeamMember {
+export interface GalleryVideo {
   id: string;
-  name: string;
-  role: string;
-  photo_url: string;
-  instagram_url: string;
+  title: string;
+  video_url: string;
+  thumbnail_url?: string;
   order_position: number;
   created_at: string;
+  updated_at: string;
 }
 
 export interface Experience {

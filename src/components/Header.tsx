@@ -19,7 +19,7 @@ export default function Header() {
     { label: 'Experiências', href: '#experiences' },
     { label: 'Sobre', href: '#about' },
     { label: 'Galeria', href: '#gallery' },
-    { label: 'Equipe', href: '#team' },
+    { label: 'Vídeos', href: '#videos' },
     { label: 'Contato', href: '#contact' },
   ];
 

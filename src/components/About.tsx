@@ -8,13 +8,12 @@ export default function About() {
 
   const stats = [
     { icon: Camera, label: 'Anos de Experiência', value: 4, suffix: '+' },
-    { icon: Users, label: 'Membros na Equipe', value: 10, suffix: '' },
     { icon: Award, label: 'Eventos Fotografados', value: 500, suffix: '+' },
     { icon: Heart, label: 'Clientes Satisfeitos', value: 100, suffix: '%' },
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-slate-900 to-black">
+    <section id="about" className="py-20 bg-gradient-to-b from-slate-900 to-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -24,16 +23,16 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/5">
               <img
-                src="https://res.cloudinary.com/dxhlvrach/image/upload/v1762538779/ReyelProducoes_rbqfgy.png"
+                src="/93D7D00E-239F-422B-B624-6953CF9281A9.JPG.jpeg"
                 alt="Fotógrafo da Reyel Produções em ação"
-                className="w-full h-[500px] object-cover"
+                className="w-full h-[650px] object-cover hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
             </div>
 
-            <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-gradient-to-br from-red-600 to-red-800 rounded-2xl -z-10 blur-3xl opacity-30"></div>
+            <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-gradient-to-br from-red-600 to-red-800 rounded-2xl -z-10 blur-3xl opacity-20"></div>
           </motion.div>
 
           <motion.div
@@ -53,10 +52,10 @@ export default function About() {
             </p>
 
             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-              Por isso, eu e minha equipe estamos sempre nos aprimorando para entregar o nosso melhor aos nossos clientes. Cada projeto é único e merece toda nossa dedicação e criatividade.
+              Por isso, estou sempre me aprimorando para entregar o nosso melhor aos nossos clientes. Cada projeto é único e merece toda minha dedicação e criatividade.
             </p>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}

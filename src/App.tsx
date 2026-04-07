@@ -4,12 +4,7 @@ import Hero from './components/Hero';
 import Experiences from './components/Experiences';
 import About from './components/About';
 import Gallery from './components/Gallery';
-import Team from './components/Team';
-import Purpose from './components/Purpose';
-import Footer from './components/Footer';
-import AdminPanel from './components/AdminPanel';
-import ErrorBoundary from './components/ErrorBoundary';
-import { AuthProvider } from './contexts/AuthContext';
+import ReelsSection from './components/ReelsSection';
 
 function HomePage() {
   return (
@@ -20,7 +15,7 @@ function HomePage() {
         <Gallery />
         <About />
         <Experiences />
-        <Team />
+        <ReelsSection />
         <Purpose />
       </main>
       <Footer />
