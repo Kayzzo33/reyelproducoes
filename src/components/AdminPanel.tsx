@@ -318,7 +318,7 @@ export default function AdminPanel() {
                   </div>
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm text-gray-400 mb-1">Link do Drive</label>
+                      <label className="block text-sm text-gray-400 mb-1">Link da Galeria</label>
                       <input
                         type="text"
                         value={projectForm.drive_link}

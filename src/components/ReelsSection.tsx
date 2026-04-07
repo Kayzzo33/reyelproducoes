@@ -73,7 +73,7 @@ export default function ReelsSection() {
         ) : (
           <div 
             ref={ref}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="flex flex-wrap justify-center gap-8"
           >
             {videos.map((video, index) => (
               <motion.div

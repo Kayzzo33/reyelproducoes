@@ -11,42 +11,42 @@ export default function Experiences() {
       icon: Heart,
       title: 'Shows',
       description: 'Trabalhamos com Fotos de Shows e Festas.',
-      driveLink: '#',
+      driveLink: 'https://gallery-reyel-producoes.vercel.app',
     },
     {
       id: 2,
       icon: Trophy,
       title: 'Eventos Esportivos',
       description: 'Trabalhamos em Eventos Esportivos de sua escolha.',
-      driveLink: '#',
+      driveLink: 'https://gallery-reyel-producoes.vercel.app',
     },
     {
       id: 3,
       icon: GraduationCap,
       title: 'Eventos Escolares',
       description: 'Trabalhamos com Eventos Escolares de todos os Gêneros.',
-      driveLink: '#',
+      driveLink: 'https://gallery-reyel-producoes.vercel.app',
     },
     {
       id: 4,
       icon: Briefcase,
       title: 'Eventos Corporativos',
       description: 'Trabalhamos em Eventos Corporativos.',
-      driveLink: '#',
+      driveLink: 'https://gallery-reyel-producoes.vercel.app',
     },
     {
       id: 5,
       icon: Camera,
       title: 'Ensaios Fotográficos',
       description: 'Fazemos Ensaios Fotográficos (Externo ou Estúdio).',
-      driveLink: '#',
+      driveLink: 'https://gallery-reyel-producoes.vercel.app',
     },
     {
       id: 6,
       icon: Cake,
       title: 'E muito +',
       description: '1- Casamentos.\n2- Newborn (Fotos de Bebês).\n3- Aniversários.\n4- Batizados.\n5- Fotos de Paisagens.',
-      driveLink: '#',
+      driveLink: 'https://gallery-reyel-producoes.vercel.app',
     },
   ];
 
@@ -116,7 +116,7 @@ export default function Experiences() {
                   className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-lg hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-red-500/50 group/button"
                 >
                   <FolderOpen size={20} className="group-hover/button:rotate-12 transition-transform" />
-                  <span>Ver no Drive</span>
+                  <span>Ver na Galeria</span>
                   <ExternalLink size={16} />
                 </a>
               </div>
