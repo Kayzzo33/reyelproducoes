@@ -5,6 +5,11 @@ import Experiences from './components/Experiences';
 import About from './components/About';
 import Gallery from './components/Gallery';
 import ReelsSection from './components/ReelsSection';
+import Purpose from './components/Purpose';
+import Footer from './components/Footer';
+import AdminPanel from './components/AdminPanel';
+import ErrorBoundary from './components/ErrorBoundary';
+import { AuthProvider } from './contexts/AuthContext';
 
 function HomePage() {
   return (
