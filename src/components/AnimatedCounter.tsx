@@ -46,7 +46,9 @@ export default function AnimatedCounter({
 
   return (
     <span ref={ref}>
-      {prefix}{count}{suffix}
+      {prefix && <span>{prefix}</span>}
+      <span>{count}</span>
+      {suffix && <span>{suffix}</span>}
     </span>
   );
 }

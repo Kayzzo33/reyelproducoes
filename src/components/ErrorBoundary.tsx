@@ -35,6 +35,11 @@ export default class ErrorBoundary extends Component<Props, State> {
                 <p className="text-red-400 text-sm font-mono break-words">
                   {this.state.error.message}
                 </p>
+                {this.state.error.message.includes('removeChild') && (
+                  <p className="mt-4 text-gray-400 text-xs">
+                    <strong className="text-red-400">Dica:</strong> Este erro costuma ser causado por extensões do navegador (como o Google Tradutor). Tente desativar a tradução automática ou extensões de terceiros.
+                  </p>
+                )}
               </div>
             )}
             <button

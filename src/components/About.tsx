@@ -47,8 +47,8 @@ export default function About() {
             <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-700 mb-8"></div>
 
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              Trabalho há <span className="text-red-500 font-semibold">4 anos</span> nessa área e quando descobri a fotografia compreendi que, além do esforço, é fundamental exercer essa profissão com{' '}
-              <span className="text-red-500 font-semibold">amor</span>, para assim eternizar os melhores momentos na vida das pessoas.
+              <span>Trabalho há </span><span className="text-red-500 font-semibold">4 anos</span><span> nessa área e quando descobri a fotografia compreendi que, além do esforço, é fundamental exercer essa profissão com </span>{' '}
+              <span className="text-red-500 font-semibold">amor</span><span>, para assim eternizar os melhores momentos na vida das pessoas.</span>
             </p>
 
             <p className="text-lg text-gray-300 mb-8 leading-relaxed">

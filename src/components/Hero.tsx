@@ -77,8 +77,8 @@ export default function Hero() {
 
           <div className="h-20 sm:h-24 flex items-center justify-center mb-8">
             <p className="text-2xl sm:text-3xl md:text-4xl text-gray-300 font-light">
-              Trabalhamos com{' '}
-              <span className="text-red-500 font-semibold">
+              <span>Trabalhamos com </span>
+              <span className="text-red-500 font-semibold" translate="no">
                 {displayText}
                 {!isMobile && <span className="animate-pulse">|</span>}
               </span>

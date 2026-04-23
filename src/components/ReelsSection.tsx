@@ -117,7 +117,7 @@ export default function ReelsSection() {
                     <Play className="text-white fill-current ml-1" size={24} />
                   </div>
                   <h3 className="text-white font-bold text-xl drop-shadow-lg group-hover:text-red-500 transition-colors">
-                    {video.title}
+                    <span>{video.title}</span>
                   </h3>
                 </div>
                 
