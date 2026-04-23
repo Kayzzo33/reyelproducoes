@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Plus, Trash2, Edit2, Save, X, LogOut, User, Video, Image as ImageIcon } from 'lucide-react';
 import { supabase, GalleryProject, GalleryVideo, TABLES } from '../lib/supabase';
+import { formatDriveUrl } from '../utils/drive';
 import { useAuth } from '../contexts/AuthContext';
 import AdminLogin from './AdminLogin';
 
@@ -393,7 +394,7 @@ export default function AdminPanel() {
                   ) : (
                     <div className="flex justify-between items-center">
                       <div className="flex gap-4 items-center">
-                        <img src={project.cover_image} className="w-20 h-20 rounded-lg object-cover" alt="" />
+                        <img src={formatDriveUrl(project.cover_image)} className="w-20 h-20 rounded-lg object-cover" alt="" />
                         <div>
                           <h3 className="text-xl font-bold">{project.title}</h3>
                           <p className="text-gray-400 text-sm">{project.description}</p>

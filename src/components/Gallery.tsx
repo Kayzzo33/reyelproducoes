@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Instagram, ExternalLink } from 'lucide-react';
 import { supabase, GalleryProject, TABLES } from '../lib/supabase';
+import { formatDriveUrl } from '../utils/drive';
 
 export default function Gallery() {
   const [projects, setProjects] = useState<GalleryProject[]>([]);
@@ -120,7 +121,7 @@ export default function Gallery() {
                 whileHover={{ scale: 1.03 }}
               >
                 <img
-                  src={project.cover_image || 'https://images.pexels.com/photos/1983032/pexels-photo-1983032.jpeg?auto=compress&cs=tinysrgb&w=600'}
+                  src={formatDriveUrl(project.cover_image) || 'https://images.pexels.com/photos/1983032/pexels-photo-1983032.jpeg?auto=compress&cs=tinysrgb&w=600'}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />

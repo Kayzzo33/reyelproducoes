@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Play, X } from 'lucide-react';
 import { supabase, GalleryVideo, TABLES } from '../lib/supabase';
+import { formatDriveUrl } from '../utils/drive';
 
 export default function ReelsSection() {
   const [videos, setVideos] = useState<GalleryVideo[]>([]);
@@ -48,7 +49,7 @@ export default function ReelsSection() {
     
     // Google Drive
     if (url.includes('drive.google.com')) {
-      return url.replace('/view', '/preview').replace('/edit', '/preview');
+      return formatDriveUrl(url, 'preview');
     }
     
     return url;
