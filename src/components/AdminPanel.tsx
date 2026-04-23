@@ -371,24 +371,62 @@ export default function AdminPanel() {
               {projects.map((project) => (
                 <div key={project.id} className="bg-slate-800/30 border border-white/5 p-6 rounded-2xl group hover:bg-slate-800/50 transition-colors">
                   {isEditing === project.id ? (
-                    <div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs text-gray-500 mb-1">Título</label>
+                          <input
+                            type="text"
+                            value={projectForm.title}
+                            onChange={(e) => setProjectForm({ ...projectForm, title: e.target.value })}
+                            className="w-full px-4 py-2 bg-slate-900 border border-white/10 rounded-lg focus:border-red-500 outline-none"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs text-gray-500 mb-1">Ordem</label>
+                          <input
+                            type="number"
+                            value={projectForm.order_position}
+                            onChange={(e) => setProjectForm({ ...projectForm, order_position: parseInt(e.target.value) })}
+                            className="w-full px-4 py-2 bg-slate-900 border border-white/10 rounded-lg focus:border-red-500 outline-none"
+                          />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-xs text-gray-500 mb-1">Descrição</label>
                         <input
                           type="text"
-                          value={projectForm.title}
-                          onChange={(e) => setProjectForm({ ...projectForm, title: e.target.value })}
-                          className="px-4 py-2 bg-slate-900 border border-white/10 rounded-lg"
-                        />
-                        <input
-                          type="number"
-                          value={projectForm.order_position}
-                          onChange={(e) => setProjectForm({ ...projectForm, order_position: parseInt(e.target.value) })}
-                          className="px-4 py-2 bg-slate-900 border border-white/10 rounded-lg"
+                          value={projectForm.description}
+                          onChange={(e) => setProjectForm({ ...projectForm, description: e.target.value })}
+                          className="w-full px-4 py-2 bg-slate-900 border border-white/10 rounded-lg focus:border-red-500 outline-none"
                         />
                       </div>
-                      <div className="flex gap-2">
-                        <button onClick={() => handleUpdateProject(project.id)} className="px-4 py-2 bg-red-600 rounded-lg">Salvar</button>
-                        <button onClick={() => setIsEditing(null)} className="px-4 py-2 bg-slate-700 rounded-lg">Cancelar</button>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs text-gray-500 mb-1">URL da Capa (Drive ou Link Direto)</label>
+                          <input
+                            type="text"
+                            value={projectForm.cover_image}
+                            onChange={(e) => setProjectForm({ ...projectForm, cover_image: e.target.value })}
+                            className="w-full px-4 py-2 bg-slate-900 border border-white/10 rounded-lg focus:border-red-500 outline-none"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs text-gray-500 mb-1">Link do Projeto (Drive/Site)</label>
+                          <input
+                            type="text"
+                            value={projectForm.drive_link}
+                            onChange={(e) => setProjectForm({ ...projectForm, drive_link: e.target.value })}
+                            className="w-full px-4 py-2 bg-slate-900 border border-white/10 rounded-lg focus:border-red-500 outline-none"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="flex gap-2 pt-2">
+                        <button onClick={() => handleUpdateProject(project.id)} className="px-6 py-2 bg-red-600 hover:bg-red-700 rounded-lg transition-colors font-bold">Salvar Alterações</button>
+                        <button onClick={() => setIsEditing(null)} className="px-6 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors">Cancelar</button>
                       </div>
                     </div>
                   ) : (
@@ -505,22 +543,50 @@ export default function AdminPanel() {
                     {isEditing === video.id ? (
                       <div className="space-y-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <input
-                            type="text"
-                            value={videoForm.title}
-                            onChange={(e) => setVideoForm({ ...videoForm, title: e.target.value })}
-                            className="px-4 py-2 bg-slate-900 border border-white/10 rounded-lg w-full"
-                          />
-                          <input
-                            type="text"
-                            value={videoForm.video_url}
-                            onChange={(e) => setVideoForm({ ...videoForm, video_url: e.target.value })}
-                            className="px-4 py-2 bg-slate-900 border border-white/10 rounded-lg w-full"
-                          />
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Título</label>
+                            <input
+                              type="text"
+                              value={videoForm.title}
+                              onChange={(e) => setVideoForm({ ...videoForm, title: e.target.value })}
+                              className="w-full px-4 py-2 bg-slate-900 border border-white/10 rounded-lg focus:border-red-500 outline-none"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Ordem</label>
+                            <input
+                              type="number"
+                              value={videoForm.order_position}
+                              onChange={(e) => setVideoForm({ ...videoForm, order_position: parseInt(e.target.value) })}
+                              className="w-full px-4 py-2 bg-slate-900 border border-white/10 rounded-lg focus:border-red-500 outline-none"
+                            />
+                          </div>
                         </div>
-                        <div className="flex gap-2">
-                          <button onClick={() => handleUpdateVideo(video.id)} className="px-4 py-2 bg-red-600 rounded-lg font-medium">Salvar Alterações</button>
-                          <button onClick={() => setIsEditing(null)} className="px-4 py-2 bg-slate-700 rounded-lg">Cancelar</button>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">URL do Vídeo (Youtube/Link Direto)</label>
+                            <input
+                              type="text"
+                              value={videoForm.video_url}
+                              onChange={(e) => setVideoForm({ ...videoForm, video_url: e.target.value })}
+                              className="w-full px-4 py-2 bg-slate-900 border border-white/10 rounded-lg focus:border-red-500 outline-none"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">URL da Thumbnail (Opcional)</label>
+                            <input
+                              type="text"
+                              value={videoForm.thumbnail_url}
+                              onChange={(e) => setVideoForm({ ...videoForm, thumbnail_url: e.target.value })}
+                              className="w-full px-4 py-2 bg-slate-900 border border-white/10 rounded-lg focus:border-red-500 outline-none"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="flex gap-2 pt-2">
+                          <button onClick={() => handleUpdateVideo(video.id)} className="px-6 py-2 bg-red-600 hover:bg-red-700 rounded-lg transition-colors font-bold">Salvar Alterações</button>
+                          <button onClick={() => setIsEditing(null)} className="px-6 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg transition-colors">Cancelar</button>
                         </div>
                       </div>
                     ) : (
